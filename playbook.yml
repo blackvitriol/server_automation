@@ -12,9 +12,9 @@
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
       loop: [ 'aptitude' ]
 
-    - name: Install Nginx
+    - name: Install Nginx and dependencies
       apt: name={{ item }} update_cache=yes state=latest
-      loop: [ 'nginx' ]
+      loop: [ 'nginx', 'php-fpm', 'php-mysql' ]
     
 # Nginx Configuration
     - name: Sets Nginx conf file
@@ -34,3 +34,20 @@
         path: "/etc/nginx/sites-enabled/default"
         state: absent
       notify: Reload Nginx
+
+# Sets Up PHP Info Page
+    - name: Sets Up PHP Info Page
+      template:
+        src: "files/info.php.j2"
+        dest: "/var/www/html/info.php"
+
+  handlers:
+    - name: Reload Nginx
+      service:
+        name: nginx
+        state: reloaded
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
