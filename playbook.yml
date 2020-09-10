@@ -11,6 +11,9 @@
     - name: Install Prerequisites
       apt: name={{ item }} update_cache=yes state=latest force_apt_get=yes
       loop: [ 'aptitude' ]
+      
+  # - name: Install Node.js
+    - include: tasks/nodejs.yml
 
     - name: Install Nginx and dependencies
       apt: name={{ item }} update_cache=yes state=latest
