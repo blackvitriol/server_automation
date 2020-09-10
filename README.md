@@ -5,7 +5,7 @@ Using Ansible to perform system update, install latest ngnix and latest nodejs.
 ### (pre-requisities)
 This is intended to be used on a Ubuntu 18.04 system.
 On the master computer, open a terminal and add:
-> sudo apt-add-repository ppa:ansible/ansible &&
+`sudo apt-add-repository ppa:ansible/ansible &&`
 > sudo apt update &&
 > sudo apt install ansible
 
