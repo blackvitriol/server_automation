@@ -14,5 +14,5 @@ Test your connections to remote computers:`ansible all -m ping -u remote_user` o
 
 ### load this project
 On the master computer, open a terminal and run:
-`git clone <this repos address>`
+`git clone https://github.com/blackvitriol/server_automation.git`
   
