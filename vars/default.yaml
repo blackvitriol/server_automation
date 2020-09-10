@@ -2,3 +2,4 @@
 http_host: "your_domain"
 http_conf: "your_domain.conf"
 http_port: "80"
+temp_folder: /tmp
